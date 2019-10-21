@@ -30,7 +30,7 @@ Install [Descheduler](https://github.com/kubernetes-sigs/descheduler) on Kuberne
 
 ## Authors
 
-Module managed by [mailto:info@boite.nl](Boite Witte)
+Module managed by Boite Witte
 
 ## License
 
