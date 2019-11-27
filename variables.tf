@@ -27,6 +27,20 @@ variable "namespace" {
   default     = "kube-system"
 }
 
+# ############################ #
+# Descheduler Policy ConfigMap #
+# ############################ #
+
+variable "policy_cm_volume" {
+  type        = map(string)
+  description = "Configuration for the Volume of the ConfigMap containing the Descheduler Policy"
+  default = {
+    path = "/policy-dir"
+    name = "policy-volume"
+    file = "policy.yaml"
+  }
+}
+
 # ############################# #
 # Descheduler Policy Strategies #
 # ############################# #
