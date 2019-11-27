@@ -25,7 +25,7 @@ resource "kubernetes_cluster_role_binding" "descheduler" {
   }
 
   subject {
-    kind      = "Service Account"
+    kind      = "ServiceAccount"
     name      = kubernetes_service_account.descheduler.metadata[0].name
     namespace = kubernetes_service_account.descheduler.metadata[0].namespace
   }
