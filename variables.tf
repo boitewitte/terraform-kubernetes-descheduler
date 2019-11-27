@@ -10,10 +10,18 @@ variable "create_cluster_role" {
   default     = true
 }
 
-variable "descheduler_image" {
-  type        = string
+variable "image" {
+  type = object({
+    name = string
+    tag  = string
+  })
   description = "The Image for the Descheduler"
 }
+
+# variable "descheduler_image" {
+#   type        = string
+#   description = "The Image for the Descheduler"
+# }
 
 variable "name" {
   type        = string

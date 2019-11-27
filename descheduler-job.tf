@@ -20,7 +20,7 @@ resource "kubernetes_job" "descheduler" {
       spec {
         container {
           name  = var.name
-          image = var.descheduler_image
+          image = format("%s:%s", var.image.name, var.image.tag != null ? var.image.tag : "latest")
 
           command = [
             "/bin/descheduler",
