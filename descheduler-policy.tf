@@ -70,7 +70,8 @@ locals {
 
 resource "kubernetes_config_map" "policy" {
   metadata {
-    name = format("%s-%s", var.name, "policy")
+    name      = format("%s-%s", var.name, "policy")
+    namespace = var.namespace
   }
 
   data = {
