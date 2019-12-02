@@ -23,3 +23,4 @@ resource "kubernetes_cluster_role" "descheduler" {
     verbs      = ["create"]
   }
 }
+

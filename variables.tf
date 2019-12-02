@@ -18,6 +18,12 @@ variable "image" {
   description = "The Image for the Descheduler"
 }
 
+variable "image_pull_secret" {
+  type        = string
+  description = "Secret containing the .dockerconfig file for getting the Pull Secret"
+  default     = null
+}
+
 # variable "descheduler_image" {
 #   type        = string
 #   description = "The Image for the Descheduler"
@@ -34,6 +40,7 @@ variable "namespace" {
   description = "The namespace to which the Descheduler is deployed"
   default     = "kube-system"
 }
+
 
 # ############################ #
 # Descheduler Policy ConfigMap #

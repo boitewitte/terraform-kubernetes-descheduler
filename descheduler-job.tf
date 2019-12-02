@@ -1,3 +1,10 @@
+locals {
+  image_pull_secrets = compact(var.image_pull_secret != null
+    ? [var.image_pull_secret]
+    : []
+  )
+}
+
 resource "kubernetes_job" "descheduler" {
   metadata {
     name      = format("%s-%s", var.name, "job")
@@ -31,6 +38,14 @@ resource "kubernetes_job" "descheduler" {
           volume_mount {
             mount_path = local.policy_volume.path
             name       = local.policy_volume.name
+          }
+        }
+
+        dynamic "image_pull_secrets" {
+          for_each = local.image_pull_secrets
+
+          content {
+            name = image_pull_secrets.value
           }
         }
 
