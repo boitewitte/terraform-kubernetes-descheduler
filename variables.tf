@@ -1,3 +1,9 @@
+variable "annotations" {
+  type        = map(string)
+  description = "Annotations for the Job"
+  default     = {}
+}
+
 variable "cluster_role" {
   type        = string
   description = "The cluster role to attach to the Descheduler Service Account, only used when a create_cluster_role = false"

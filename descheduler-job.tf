@@ -19,9 +19,12 @@ resource "kubernetes_job" "descheduler" {
     template {
       metadata {
         name = format("%s-%s", var.name, "pod")
-        annotations = {
-          "scheduler.alpha.kubernetes.io/critical-pod" = ""
-        }
+        annotations = merge(
+          {
+            "scheduler.alpha.kubernetes.io/critical-pod" = ""
+          },
+          var.annotations
+        )
       }
 
       spec {
